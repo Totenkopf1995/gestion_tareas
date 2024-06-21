@@ -2,7 +2,7 @@
 class NotificationService
   def self.notify_product_change(product)
     begin
-      RestClient.post 'http://notification_service/notify_product_update', { product_id: product.id }
+      RestClient.post 'http://localhost:3001/notify_product_update', { product_id: product.id }
     rescue RestClient::ExceptionWithResponse => e
       Rails.logger.error "Failed to notify product change: #{e.response}"
     rescue StandardError => e
